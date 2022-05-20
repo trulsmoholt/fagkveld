@@ -8,5 +8,17 @@
     <h1>
       Hello World!
     </h1>
+    <p id="node"></p>
+    <button id="btn-click">Click me</button>
+    <script>
+        var message = document.getElementById("node");
+        document.getElementById("btn-click").addEventListener("click",function(){
+          fetch("BACKEND_URL").then(res=>{
+            res.text().then(text=>message.innerText =message.innerText+"   "+ text)
+          }).catch(function(error){
+            console.log(error);
+          })
+        })
+    </script>
   </body>
 </html>
